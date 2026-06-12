@@ -1,6 +1,0 @@
-
-Print
-    /bin/sh -c "/usr/local/bin/scrot '%Y-%m-%d-%H%M%S_\$wx\$hp_scrot.png' -e 'mv \$f ~/Pictures/ && xclip -selection clipboard -t image/png ~/Pictures/\$f'"
-mod1 + Print
-    /bin/sh -c "sleep 0.2 && /usr/local/bin/scrot -s '%Y-%m-%d-%H%M%S_\$wx\$hp_scrot.png' -e 'mv \$f ~/Pictures/ && xclip -selection clipboard -t image/png ~/Pictures/\$f'"
-
