@@ -1,0 +1,24 @@
+#!/bin/sh
+read -r host < /proc/sys/kernel/hostname
+read -r kernel < /proc/sys/kernel/osrelease
+. /etc/os-release
+
+while read -r line; do
+    [ "${line#exec }" = "$line" ] || wm="${line#exec }"
+done < "$HOME/.xinitrc"
+
+c0='^[['0m''
+c1='^[['37m''
+
+printf '%s\n' "
+
+    ${c1}     .-.         ${USER}${c0}@${c1}${host}
+    ${c1}  __/   (        ${c1}os      ${PRETTY_NAME}
+    ${c1}, '-.____\\       ${c1}kernel  ${kernel}
+    ${c1} u=='/  \\        ${c1}shell   ${SHELL##*/}
+    ${c1}    /_/  \\       ${c1}wm      ${wm##*/}
+    ${c1}  .-''   |
+    ${c1} (  ____/_____   
+
+"
+
